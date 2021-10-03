@@ -18,14 +18,6 @@ public class Student  implements Serializable  {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name",nullable = false)
-    private String name;
-
-    @Column(name = "surname",nullable = false)
-    private String surname;
-
-    @Column(name = "gmail",nullable = false)
-    private String gmail;
 
     @Column(name = "phone")
     private String phoneNumber;
@@ -40,6 +32,13 @@ public class Student  implements Serializable  {
     @Column(name = "admission_date", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date admissionDate;
+
+    @Column(name = "gender")
+    private String gender;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User userId;
 
 
     public String getNationality() {
@@ -77,21 +76,8 @@ public class Student  implements Serializable  {
             inverseJoinColumns = @JoinColumn(name = "course_id"))
     private List<Course> courseList;
 
-    public String getSurname() {
-        return surname;
-    }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 
-    public String getGmail() {
-        return gmail;
-    }
-
-    public void setGmail(String gmail) {
-        this.gmail = gmail;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -120,13 +106,7 @@ public class Student  implements Serializable  {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public List<Course> getCourseList() {
         return courseList;
@@ -136,5 +116,19 @@ public class Student  implements Serializable  {
         this.courseList = courseList;
     }
 
+    public String getGender() {
+        return gender;
+    }
 
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
 }
