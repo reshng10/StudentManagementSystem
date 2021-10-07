@@ -22,17 +22,25 @@ public class Course implements Serializable {
     private String courseDescription;
 
     @ManyToMany(mappedBy = "courseList")
-    private List<Student> enrolledStudentList;
+    private List<User> enrolledUserList;
 
     @JoinColumn(name ="department_id",referencedColumnName = "id")
     @ManyToOne
     private  Department departmentId;
 
-    @JoinColumn(name ="teacher_id",referencedColumnName = "id")
+    @JoinColumn(name ="user_id",referencedColumnName = "id")
     @ManyToOne
-    private Teacher teacherId;
+    private User teacherId;
 
     public Course() {
+    }
+
+    public List<User> getEnrolledUserList() {
+        return enrolledUserList;
+    }
+
+    public void setEnrolledUserList(List<User> enrolledUserList) {
+        this.enrolledUserList = enrolledUserList;
     }
 
     public Integer getId() {
@@ -59,13 +67,10 @@ public class Course implements Serializable {
         this.courseDescription = courseDescription;
     }
 
-    public List<Student> getEnrolledStudentList() {
-        return enrolledStudentList;
+    public List<User> getEnrolledStudentList() {
+        return enrolledUserList;
     }
 
-    public void setEnrolledStudentList(List<Student> enrolledStudentList) {
-        this.enrolledStudentList = enrolledStudentList;
-    }
 
     public Department getDepartmentId() {
         return departmentId;
@@ -75,11 +80,11 @@ public class Course implements Serializable {
         this.departmentId = departmentId;
     }
 
-    public Teacher getTeacherId() {
+    public User getTeacherId() {
         return teacherId;
     }
 
-    public void setTeacherId(Teacher teacherId) {
+    public void setTeacherId(User teacherId) {
         this.teacherId = teacherId;
     }
 

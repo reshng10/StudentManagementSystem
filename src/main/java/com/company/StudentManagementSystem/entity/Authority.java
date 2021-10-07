@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "authority")
@@ -18,8 +19,8 @@ public class Authority implements Serializable, GrantedAuthority {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "authorities")
-    private List<User> userList;
+    @ManyToMany(mappedBy = "authorityList")
+    private Set<User> userList;
 
     public Integer getId() {
         return id;
@@ -37,11 +38,11 @@ public class Authority implements Serializable, GrantedAuthority {
         return name;
     }
 
-    public List<User> getUserList() {
+    public Set<User> getUserList() {
         return userList;
     }
 
-    public void setUserList(List<User> userList) {
+    public void setUserList(Set<User> userList) {
         this.userList = userList;
     }
 

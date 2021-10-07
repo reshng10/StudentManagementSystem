@@ -19,10 +19,10 @@ public class Department implements Serializable {
     private String name;
 
     @OneToMany(mappedBy = "departmentId")
-    private List<Student> studentList;
+    private List<User> studentList;
 
     @OneToMany(mappedBy = "departmentId")
-    private List<Teacher> teacherList;
+    private List<User> teacherList;
 
     @OneToMany(mappedBy = "departmentId")
     private List<Course> courseList;
@@ -36,11 +36,11 @@ public class Department implements Serializable {
         this.courseList = courseList;
     }
 
-    public List<Teacher> getTeacherList() {
+    public List<User> getTeacherList() {
         return teacherList;
     }
 
-    public void setTeacherList(List<Teacher> teacherList) {
+    public void setTeacherList(List<User> teacherList) {
         this.teacherList = teacherList;
     }
 
@@ -60,11 +60,11 @@ public class Department implements Serializable {
         this.name = name;
     }
 
-    public List<Student> getStudentList() {
+    public List<User> getStudentList() {
         return studentList;
     }
 
-    public void setStudentList(List<Student> studentList) {
+    public void setStudentList(List<User> studentList) {
         this.studentList = studentList;
     }
 
