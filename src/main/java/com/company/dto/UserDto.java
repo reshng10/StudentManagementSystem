@@ -1,9 +1,10 @@
-package com.company.StudentManagementSystem.dto;
+package com.company.dto;
 
 
 import java.util.Date;
 
 public class UserDto {
+    private Integer Id;
     private String name;
     private String surname;
     private String username;
@@ -83,5 +84,13 @@ public class UserDto {
     }
     public void  setPassword(String password){
       this.password=password;
+    }
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
     }
 }

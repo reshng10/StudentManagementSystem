@@ -1,5 +1,9 @@
-package com.company.StudentManagementSystem.entity;
+package com.company.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,6 +28,8 @@ public class Course implements Serializable {
     @ManyToMany(mappedBy = "courseList")
     private List<User> enrolledUserList;
 
+
+    //@JsonBackReference
     @JoinColumn(name ="department_id",referencedColumnName = "id")
     @ManyToOne
     private  Department departmentId;
@@ -34,6 +40,8 @@ public class Course implements Serializable {
 
     public Course() {
     }
+
+
 
     public List<User> getEnrolledUserList() {
         return enrolledUserList;

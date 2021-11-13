@@ -31,6 +31,12 @@
             <td th:text="${student.admissionDate}" ></td>
             <td th:text="${student.gender}"></td>
             <td th:text="${student.username}"></td>
+            <td>
+            <form th:action= "@{/student/StudentInfo}"  method="post" >
+                <input type="hidden" name="id" th:value="${student.id}" />
+                <button type="submit" class="btn btn-info">Update</button>
+            </form>
+            </td>
         </tr>
         </tbody>
     </table>

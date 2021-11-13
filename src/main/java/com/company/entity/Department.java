@@ -1,5 +1,9 @@
-package com.company.StudentManagementSystem.entity;
+package com.company.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,12 +22,15 @@ public class Department implements Serializable {
     @Column(name = "name",nullable = false)
     private String name;
 
+
     @OneToMany(mappedBy = "departmentId")
     private List<User> studentList;
 
     @OneToMany(mappedBy = "departmentId")
     private List<User> teacherList;
 
+
+    //@JsonManagedReference
     @OneToMany(mappedBy = "departmentId")
     private List<Course> courseList;
 
@@ -53,7 +60,7 @@ public class Department implements Serializable {
     }
 
     public String getName() {
-        return name;
+        System.out.println("dfsgfdg"); return name;
     }
 
     public void setName(String name) {

@@ -1,8 +1,9 @@
-package com.company.StudentManagementSystem.service;
+package com.company.service;
 
-import com.company.StudentManagementSystem.dto.UserDto;
-import com.company.StudentManagementSystem.entity.User;
-import com.company.StudentManagementSystem.repository.UserRepository;
+import com.company.dto.UserDto;
+import com.company.entity.User;
+import com.company.repository.UserRepository;
+import com.company.service.inter.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -49,5 +50,18 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    @Override
+    public void update(UserDto userDto) throws Exception {
+       User user= userRepository.findById(userDto.getId()).get();
+        user.setName(userDto.getName());
+        user.setSurname(userDto.getSurname());
+        user.setAdmissionDate(new SimpleDateFormat("yyyy-MM-dd").parse(userDto.getAdmissionDate()));
+        user.setUsername(userDto.getUsername());
+        user.setNationality(userDto.getNationality());
+        user.setPhone(userDto.getPhone());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        userRepository.save(user);
+
+    }
 
 }
