@@ -39,7 +39,7 @@ public class CourseServiceImpl implements CourseService {
         courseDto.setUserDtoList(course.getEnrolledUserList());
         courseDtoList.add(courseDto);
     });
-    System.out.println(courseDtoList.get(0).getDepartmentDto().getId() +"--------------------------"+ courseDtoList.get(0).getDepartmentDto().getName());
+//    System.out.println(courseDtoList.get(0).getDepartmentDto().getId() +"--------------------------"+ courseDtoList.get(0).getDepartmentDto().getName());
       return  courseDtoList;
     }
 

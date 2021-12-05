@@ -31,7 +31,7 @@ public class Department implements Serializable {
 
 
     //@JsonManagedReference
-    @OneToMany(mappedBy = "departmentId")
+    @OneToMany(mappedBy = "departmentId",cascade = CascadeType.ALL)
     private List<Course> courseList;
 
 
